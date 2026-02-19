@@ -8,17 +8,26 @@
       color: white;
       text-align: center;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #gameContainer {
+      margin-top: 20px;
     }
 
     iframe {
-      margin-top: 20px;
+      width: 960px;
+      height: 600px;
+      border: none;
       border-radius: 12px;
+      display: block;
+      margin: 20px auto;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 15px;
+      padding: 12px 24px;
+      font-size: 18px;
       cursor: pointer;
       border-radius: 8px;
       border: none;
@@ -30,23 +39,21 @@
 
   <h1>🎮 Play My Game</h1>
 
-  <button onclick="goFullScreen()">Go Full Screen</button>
+  <button id="fullscreenBtn">Go Full Screen</button>
 
-  <br>
-
-  <iframe 
-    id="gameFrame"
-    src="https://lolygames.github.io/gd-lit/"
-    width="960" 
-    height="600"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
+  <div id="gameContainer">
+    <iframe 
+      id="gameFrame"
+      src="https://lolygames.github.io/gd-lit/"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <script>
     const iframe = document.getElementById("gameFrame");
+    const button = document.getElementById("fullscreenBtn");
 
-    function goFullScreen() {
+    button.addEventListener("click", () => {
       if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
       } else if (iframe.webkitRequestFullscreen) {
@@ -54,7 +61,7 @@
       } else if (iframe.msRequestFullscreen) {
         iframe.msRequestFullscreen();
       }
-    }
+    });
 
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
