@@ -1,59 +1,80 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>DONT SHOW ANYONE</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+        <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+        <title>Basketball Stars | 3kh0.co</title>
 
-    .game-section {
-      margin-bottom: 50px;
-    }
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <script src="/js/main.js"></script>
+    <body>
+        <div id="content"></div>
+        <div id="orientation"></div>
+        <div id="loader">Loading ...</div>
+        <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+        <script type="text/javascript" src="assets/box2dweb/nape.min.js">
+            var nape ="nape.min.js" ;
+        </script>
+        <script type="text/javascript" src="assets/box2dweb/nape-debug-draw.min.js"></script>
+        <script type="text/javascript" src="assets/box2dweb/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="assets/box2dweb/easeljs-0.8.2.combined.js"></script>
+        <script type="text/javascript" src="assets/box2dweb/bluebird.min.js"></script>
+        <script type="text/javascript">
+            var useEvents = typeof Event === "function";
 
-    button {
-      padding: 12px 24px;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 8px;
-      border: none;
-      margin-top: 15px;
-    }
-  </style>
-</head>
+            var myDispatchEvent = function (name) {
+                var event;
+                if (useEvents) {
+                    event = new Event(name);
+                } else {
+                    event = document.createEvent("Event");
+                    event.initEvent(name, true, true);
+                }
+                document.getElementById("content").dispatchEvent(event);
+            };
 
-<body>
-
-  <h1>🎮 My Game Arcade</h1>
-
-  <!-- GAME 1 -->
-  <div class="game-section">
-    <h2>Game 1</h2>
-    <a href="https://cloud.onlinegames.io/games/2024/construct/316/basketball-king/index-og.html/" target="_blank">
-      <button>Play Game 1</button>
-    </a>
-  </div>
-
-  <!-- GAME 2 -->
-  <div class="game-section">
-    <h2>Game 2</h2>
-    <a href="https://1games.io/game/slope-rider-3d/" target="_blank">
-      <button>Play Game 2</button>
-    </a>
-  </div>
-
-  <!-- GAME 3 -->
-  <div class="game-section">
-    <h2>Game 3</h2>
-    <a href="https://basketballlegends.pro/game/basketball-legends/" target="_blank">
-      <button>Play Game 3</button>
-    </a>
-  </div>
-
-</body>
+            window["GD_OPTIONS"] = {
+                gameId: "69d78d071f704fa183d75b4114ae40ec",
+                onEvent: function (event) {
+                    switch (event.name) {
+                        case "SDK_GAME_START":
+                            // advertisement done, resume game logic and unmute audio
+                            myDispatchEvent("SDK_GAME_START");
+                            break;
+                        case "SDK_GAME_PAUSE":
+                            // pause game logic / mute audio
+                            myDispatchEvent("SDK_GAME_PAUSE");
+                            // document.getElementById("content").dispatchEvent(new Event("SDK_GAME_PAUSE"));
+                            break;
+                        case "SDK_GDPR_TRACKING":
+                            // this event is triggered when your user doesn't want to be tracked
+                            console.log("SDK_GDPR_TRACKING");
+                            break;
+                        case "SDK_GDPR_TARGETING":
+                            // this event is triggered when your user doesn't want personalised targeting of ads and such
+                            console.log("SDK_GDPR_TARGETING");
+                            break;
+                        case "SDK_READY":
+                            // this event is triggered when your user doesn't want personalised targeting of ads and such
+                            console.log("SDK_READY");
+                            // gdsdk.openConsole();
+                            break;
+                    }
+                },
+            };
+            (function (d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "assets/main.min.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, "script", "gamedistribution-jssdk");
+        </script>
+        <script type="text/javascript" src="assets/basketball_legends_2019.min.js"></script>
+    </body>
 </html>
