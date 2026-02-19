@@ -16,15 +16,6 @@
       margin-bottom: 50px;
     }
 
-    iframe {
-      width: 960px;
-      height: 600px;
-      border: none;
-      border-radius: 12px;
-      display: block;
-      margin: 20px auto;
-    }
-
     button {
       padding: 12px 24px;
       font-size: 18px;
@@ -43,61 +34,26 @@
   <!-- GAME 1 -->
   <div class="game-section">
     <h2>Game 1</h2>
-    <button onclick="fullscreenGame('game1')">Full Screen Game 1</button>
-    <iframe 
-      id="game1"
-      src="https://lolygames.github.io/gd-lit/"
-      allow="fullscreen"
-      allowfullscreen>
-    </iframe>
+    <a href="https://lolygames.github.io/gd-lit/" target="_blank">
+      <button>Play Game 1</button>
+    </a>
   </div>
 
   <!-- GAME 2 -->
   <div class="game-section">
     <h2>Game 2</h2>
-    <button onclick="fullscreenGame('game2')">Full Screen Game 2</button>
-    <iframe 
-      id="game2"
-      src="https://1games.io/game/slope-rider-3d/"
-      allow="fullscreen"
-      allowfullscreen>
-    </iframe>
+    <a href="https://1games.io/game/slope-rider-3d/" target="_blank">
+      <button>Play Game 2</button>
+    </a>
   </div>
 
   <!-- GAME 3 -->
   <div class="game-section">
     <h2>Game 3</h2>
-    <button onclick="fullscreenGame('game3')">Full Screen Game 3</button>
-    <iframe 
-      id="game3"
-      src="https://basketballlegends.pro/game/basketball-legends/"
-      allow="fullscreen"
-      allowfullscreen>
-    </iframe>
+    <a href="https://basketballlegends.pro/game/basketball-legends/" target="_blank">
+      <button>Play Game 3</button>
+    </a>
   </div>
-
-  <script>
-    function fullscreenGame(id) {
-      const iframe = document.getElementById(id);
-
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-      }
-    }
-
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        if (document.fullscreenElement) {
-          document.exitFullscreen();
-        }
-        window.open("about:blank", "_blank");
-      }
-    });
-  </script>
 
 </body>
 </html>
