@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Game Website</title>
+  <title>DONT SHOW ANYONE</title>
   <style>
     body {
       background: #111;
@@ -10,6 +10,10 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
+    }
+
+    .game-section {
+      margin-bottom: 50px;
     }
 
     iframe {
@@ -34,20 +38,47 @@
 
 <body>
 
-  <h1>🎮 Play My Game</h1>
+  <h1>🎮 My Game Arcade</h1>
 
-  <button onclick="fullscreenGame()">Full Screen Game</button>
+  <!-- GAME 1 -->
+  <div class="game-section">
+    <h2>Game 1</h2>
+    <button onclick="fullscreenGame('game1')">Full Screen Game 1</button>
+    <iframe 
+      id="game1"
+      src="https://lolygames.github.io/gd-lit/"
+      allow="fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <iframe 
-    id="gameFrame"
-    src="https://lolygames.github.io/gd-lit/"
-    allow="fullscreen"
-    allowfullscreen>
-  </iframe>
+  <!-- GAME 2 -->
+  <div class="game-section">
+    <h2>Game 2</h2>
+    <button onclick="fullscreenGame('game2')">Full Screen Game 2</button>
+    <iframe 
+      id="game2"
+      src="https://1games.io/game/slope-rider-3d/"
+      allow="fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- GAME 3 -->
+  <div class="game-section">
+    <h2>Game 3</h2>
+    <button onclick="fullscreenGame('game3')">Full Screen Game 3</button>
+    <iframe 
+      id="game3"
+      src="https://basketballlegends.pro/game/basketball-legends/"
+      allow="fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <script>
-    function fullscreenGame() {
-      const iframe = document.getElementById("gameFrame");
+    function fullscreenGame(id) {
+      const iframe = document.getElementById(id);
 
       if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
